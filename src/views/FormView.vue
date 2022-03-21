@@ -1,7 +1,8 @@
 <template>
   <HeadBar msg="Create Test" />
   <div class="outer">
-    <form action="">
+    <form enctype="multipart/form-data" @submit.prevent="onSubmit">
+      <!--<form @submit.prevent="onSubmit">-->
       <label class="form-label-1">Test Configuration</label>
       <div class="container">
         <div class="test-conf" id="test-conf-form">
@@ -17,6 +18,7 @@
           <RowSixth label="Start Stroke:" fileid="file3" />
         </div>
       </div>
+      <SubmitButton />
     </form>
   </div>
 </template>
@@ -28,6 +30,7 @@ import RowThird from "@/components/RowThird.vue";
 import RowFourth from "@/components/RowFourth.vue";
 import RowSixth from "@/components/RowSixth.vue";
 import HeadBar from "@/components/HeadBar.vue";
+import SubmitButton from "@/components/SubmitButton.vue";
 
 export default {
   name: "FormView",
@@ -38,6 +41,7 @@ export default {
     RowFourth,
     RowSixth,
     HeadBar,
+    SubmitButton,
   },
 };
 </script>
@@ -50,7 +54,7 @@ export default {
 }
 form {
   width: 845px;
-  height: 440px;
+  height: 470px;
   margin: auto;
   background-color: white;
   border: 1px solid #deeaeb;
@@ -185,7 +189,9 @@ label span:last-child {
   display: flex;
   margin-bottom: 16px;
 }
-
+.ver-col-3 {
+  width: 120px;
+}
 .ver-col-3 .btn-img-1 {
   position: relative;
   margin-top: 4px;
@@ -222,6 +228,18 @@ label span:last-child {
 
 .form-row-3 .file-selected p {
   font-size: 12px;
+}
+.form-row-4 {
+  text-align: center;
+}
+.form-row-4 .hor-col-1 button {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  border: 1px solid #deeaeb;
+  border-radius: 8px;
+  box-sizing: border-box 0px;
+  cursor: pointer;
 }
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   form {
@@ -300,11 +318,14 @@ label span:last-child {
     width: 94%;
     margin: auto;
   }
+  .form-row-4 {
+    margin-top: 30px;
+  }
 }
 @media only screen and (min-width: 340px) and (max-width: 429px) {
   form {
     width: 300px;
-    height: 760px;
+    height: 820px;
   }
   .container {
     flex-direction: column;
@@ -316,6 +337,9 @@ label span:last-child {
   .test-input-files {
     width: 94%;
     margin: auto;
+  }
+  .form-row-4 {
+    margin-top: 30px;
   }
 }
 @media only screen and (max-width: 339px) {

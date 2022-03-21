@@ -1,9 +1,15 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state: {
+    files: [],
+  },
   getters: {},
-  mutations: {},
+  mutations: {
+    ADD_FILES(state, fileADD) {
+      state.files.push(fileADD);
+    },
+  },
   actions: {},
   modules: {},
 });

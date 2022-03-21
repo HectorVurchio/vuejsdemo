@@ -4,7 +4,7 @@
       <label v-if="label">{{ label }}<span>*</span></label>
       <div class="btn-img-1" @click="handleClick()">
         <img class="butn-img-1" src="@/assets/selfil.svg" />
-        <a href="#">Select File</a>
+        <a href="#">Select&nbsp;File</a>
       </div>
     </div>
     <div class="file-selected"><p :id="`${fileid}-p`">No File Chosen</p></div>
@@ -35,6 +35,7 @@ export default {
       const elm = event.target;
       const aa = document.getElementById(`${elm.id}-p`);
       const files = elm.files;
+      this.$store.commit("ADD_FILES", files[0]);
       aa.textContent = files[0].name;
     },
     /* readFile(event) {
