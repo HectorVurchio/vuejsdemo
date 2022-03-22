@@ -8,7 +8,7 @@
       >
     </div>
     <div class="hor-col-2">
-      <BaseSelect :options="categories" />
+      <BaseSelect id="prefix" :options="categories" />
       <input type="text" id="macnam" value="" placeholder="Machine Name" />
       <input type="text" id="Testnumb" value="" placeholder="Test #" />
     </div>

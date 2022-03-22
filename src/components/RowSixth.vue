@@ -1,7 +1,7 @@
 <template>
   <div class="form-row-3">
     <div class="ver-col-3">
-      <label v-if="label">{{ label }}<span>*</span></label>
+      <label v-if="label" :id="`${fileid}-l`">{{ label }}<span>*</span></label>
       <div class="btn-img-1" @click="handleClick()">
         <img class="butn-img-1" src="@/assets/selfil.svg" />
         <a href="#">Select&nbsp;File</a>
@@ -26,23 +26,37 @@ export default {
     label: { type: String, default: "" },
     fileid: { type: String },
   },
+  data() {
+    return {
+      fileExt: "xlsx",
+      default_color: "#2c3e50",
+    };
+  },
   methods: {
     handleClick() {
       const inpfile = document.getElementById(this.fileid);
       inpfile.showPicker();
     },
     handleChange(event) {
-      const elm = event.target;
-      const aa = document.getElementById(`${elm.id}-p`);
-      const files = elm.files;
+      const element = event.target;
+      const elmid = element.id;
+      const labelid = `${elmid}-l`;
+      const label = document.getElementById(`${labelid}`);
+      const aaid = `${elmid}-p`;
+      const aa = document.getElementById(`${aaid}`);
+      const files = element.files;
       const fileName = files[0].name;
       const extension = fileName.split(".").pop();
-      if (extension.toLowerCase() == "xlsx") {
+      if (extension.toLowerCase() == this.fileExt) {
         aa.textContent = files[0].name;
+        aa.style.color = this.default_color;
+        label.style.color = this.default_color;
       } else {
-        alert("The File Extension must be of type .xlsx");
-        elm.removeAttribute("type");
-        elm.setAttribute("type", "file");
+        aa.style.color = "red";
+        label.style.color = "red";
+        alert(`The File Extension must be of type .${this.fileExt}`);
+        element.removeAttribute("type");
+        element.setAttribute("type", "file");
       }
       /* readFile(event) {
       const elm = event.target;
