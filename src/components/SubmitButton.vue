@@ -1,12 +1,12 @@
 <template>
   <div class="form-row-4">
     <div class="hor-col-1">
-      <button @click="submitFiles()">Submit</button>
+      <button @click="submitFiles">Submit</button>
     </div>
   </div>
 </template>
 <script>
-import DemoService from "@/services/DemoService.js";
+//import DemoService from "@/services/DemoService.js";
 
 export default {
   name: "SubmitButton",
@@ -16,11 +16,22 @@ export default {
     };
   },
   methods: {
-    submitFiles() {
-      //console.log(this.$store.state.files);
+    submitFiles(event) {
+      const form = event.target.form;
+      const elements = form.elements;
+      for (let i = 0; i < elements.length; i++) {
+        if (
+          elements[i].nodeName.toLowerCase() == "input" &&
+          elements[i].type.toLowerCase() == "file"
+        ) {
+          console.log(elements[i].files[0]);
+        }
+      }
+      /*
+
+
       const formData = new FormData();
       this.$store.state.files.forEach((elm, ind) => {
-        //console.log(ind, elm);
         formData.append(`files[${ind}]`, elm);
       });
       DemoService.postSendung(formData)
@@ -30,6 +41,7 @@ export default {
         .catch(() => {
           console.log("FAILURE!!");
         });
+        */
     },
   },
 };

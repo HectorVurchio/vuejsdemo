@@ -13,9 +13,9 @@
         </div>
         <div class="test-input-files">
           <label class="form-label-2">Test Configuration</label>
-          <RowSixth label="TDMD Data File:" fileid="file1" />
-          <RowSixth label="Config Log File:" fileid="file2" />
-          <RowSixth label="Start Stroke:" fileid="file3" />
+          <RowSixth label="TDMD&nbsp;Data&nbsp;File:" fileid="file1" />
+          <RowSixth label="Config&nbsp;Log&nbsp;File:" fileid="file2" />
+          <RowSixth label="Start&nbsp;Stroke:" fileid="file3" />
         </div>
       </div>
       <SubmitButton />
@@ -240,6 +240,9 @@ label span:last-child {
   border-radius: 8px;
   box-sizing: border-box 0px;
   cursor: pointer;
+}
+.form-row-4 .hor-col-1 button:hover {
+  background-color: #a5c2c4;
 }
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   form {

@@ -35,10 +35,16 @@ export default {
       const elm = event.target;
       const aa = document.getElementById(`${elm.id}-p`);
       const files = elm.files;
-      this.$store.commit("ADD_FILES", files[0]);
-      aa.textContent = files[0].name;
-    },
-    /* readFile(event) {
+      const fileName = files[0].name;
+      const extension = fileName.split(".").pop();
+      if (extension.toLowerCase() == "xlsx") {
+        aa.textContent = files[0].name;
+      } else {
+        alert("The File Extension must be of type .xlsx");
+        elm.removeAttribute("type");
+        elm.setAttribute("type", "file");
+      }
+      /* readFile(event) {
       const elm = event.target;
       const fs = document.getElementById(`${elm.id.split("-")[0]}`);
       const file = fs.files[0];
@@ -50,8 +56,8 @@ export default {
       reader.onerror = function (evt) {
         console.log(evt);
         console.log("error reading file");
-      };
-    },*/
+      };*/
+    },
   },
 };
 </script>

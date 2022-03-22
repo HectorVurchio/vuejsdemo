@@ -1,8 +1,8 @@
 <template>
   <div class="prueba-data">
     <h1>{{ msg }}</h1>
-    <h4>{{ person.id }}</h4>
-    <span>{{ person.name }} on {{ person.lastName }}</span>
+    <h2>{{ person.name }} {{ person.lastName }}</h2>
+    <h3>FE Developed with {{ person.frontend }}</h3>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
         id: 13801637,
         name: "Hector Jose",
         lastName: "Vurchio Hurtado",
-        ciizesnship: "Venezuelan",
+        frontend: "Vuejs",
       },
     };
   },

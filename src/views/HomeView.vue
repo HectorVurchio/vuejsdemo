@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img id="main" alt="../assets/logo.png" />
-    <PruebaDos msg="Welcome to Your Vue.js App" />
+    <PruebaDos msg="Welcome to My Demo App" />
   </div>
 </template>
 
