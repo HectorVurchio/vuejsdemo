@@ -1,10 +1,15 @@
 <template>
   <div class="form-row-2">
     <div class="ver-col-1">
-      <BaseInput label="Start Phase:" type="text" id="start-phase" />
+      <BaseInput
+        label="Start Phase:"
+        type="text"
+        id="start-phase"
+        maxlength="10"
+      />
     </div>
     <div class="ver-col-1">
-      <BaseInput label="End Phase:" type="text" id="end-phase" />
+      <BaseInput label="End Phase:" type="text" id="end-phase" maxlength="10" />
     </div>
   </div>
 </template>

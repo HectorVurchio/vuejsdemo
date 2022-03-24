@@ -22,6 +22,10 @@ export default {
       },
     };
   },
+  created() {
+    console.log("Parameters: ", this.$route.params);
+    console.log("Query: ", this.$route.query);
+  },
 };
 </script>
 

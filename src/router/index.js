@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import FormView from "../views/FormView.vue";
+import ListView from "../views/ListView.vue";
+import UploadView from "../views/UploadView.vue";
 
 const routes = [
   {
@@ -21,6 +23,17 @@ const routes = [
     path: "/form",
     name: "form",
     component: FormView,
+  },
+  {
+    path: "/:id?",
+    name: "uploads",
+    component: UploadView,
+    props: (route) => ({ page: parseInt(route.query._page) || 1 }),
+  },
+  {
+    path: "/:id?",
+    name: "list",
+    component: ListView,
   },
 ];
 

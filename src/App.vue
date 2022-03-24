@@ -1,8 +1,26 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/form">Form</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link :to="{ name: 'form' }">Form</router-link> |
+    <router-link
+      :to="{
+        name: 'uploads',
+        params: { id: 'uploads' },
+        query: { _limit: 2, _page: 1 },
+      }"
+      >Uploads</router-link
+    >
+    |
+    <router-link
+      :to="{
+        name: 'list',
+        params: { id: 'events' },
+        query: { _limit: 2, _page: 1 },
+      }"
+      >List</router-link
+    >
+    |
+    <router-link :to="{ name: 'about' }">About</router-link>
   </nav>
   <router-view />
 </template>
