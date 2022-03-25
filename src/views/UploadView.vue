@@ -1,6 +1,11 @@
 <template>
   <HeadBar msg="Upload List" />
-  <div class="events">
+
+  <div v-if="!upFiles">Loading Please wait...</div>
+
+  <div v-else class="upfiles">
+    <TableRow :items="upFiles" />
+
     <div class="pagination">
       <router-link
         id="page-prev"
@@ -30,39 +35,49 @@
 </template>
 <script>
 import HeadBar from "@/components/HeadBar.vue";
+import TableRow from "@/components/TableRow.vue";
 import DemoService from "@/services/DemoService.js";
-import { watchEffect } from "vue";
 export default {
   name: "UploadView",
   components: {
     HeadBar,
+    TableRow,
   },
   props: ["page"],
   data() {
     return {
       upFiles: null,
-      totalEvents: 20, //must be defined
+      totalUpFiles: 0,
     };
   },
-  created() {
-    console.log("Parameters: ", this.$route.params);
-    console.log("Query", this.$route.query);
-    watchEffect(() => {
-      DemoService.getErhalten(2, this.page)
-        .then((response) => {
-          this.upfiles = response.data;
-          //this.totalEvents = response.headers["x-total-count"]; //must be defined
-          console.log(this.upfiles);
-        })
-        .catch((error) => {
-          console.log(error);
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    DemoService.getErhalten(2, parseInt(routeTo.query._page) || 1)
+      .then((response) => {
+        next((cp) => {
+          cp.upFiles = response.data.RecSet;
+          cp.totalUpFiles = response.data.NumSet;
         });
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+        next({ name: "NetworkError" });
+      });
+  },
+  beforeRouteUpdate(routeTo) {
+    return DemoService.getErhalten(2, parseInt(routeTo.query._page) || 1)
+      .then((response) => {
+        this.upFiles = response.data.RecSet;
+        this.totalUpFiles = response.data.NumSet;
+      })
+      .catch((error) => {
+        console.log(error);
+        return { name: "NetworkError" };
+      });
   },
   computed: {
     hasNextPage() {
       // First, calculate total pages
-      var totalPages = Math.ceil(this.totalEvents / 2); // 2 is events per page
+      var totalPages = Math.ceil(this.totalUpFiles / 2); // 2 is events per page
 
       // Then check to see if the current page is less than the total pages.
       return this.page < totalPages;
@@ -71,7 +86,7 @@ export default {
 };
 </script>
 <style scoped>
-.events {
+.upfiles {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -8,7 +8,7 @@ const apiClient = axios.create({
 
 export default {
   getErhalten(perPage, page) {
-    return apiClient.get(`events?_limit=${perPage}&_page=${page}`);
+    return apiClient.get(`upload?_limit=${perPage}&_page=${page}`);
   },
   postSendung(data) {
     return apiClient.post("/excel-files", data);

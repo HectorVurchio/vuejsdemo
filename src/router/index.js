@@ -3,6 +3,9 @@ import HomeView from "../views/HomeView.vue";
 import FormView from "../views/FormView.vue";
 import ListView from "../views/ListView.vue";
 import UploadView from "../views/UploadView.vue";
+import NProgress from "nprogress";
+import NotFound from "../views/NotFound.vue";
+import NetworkError from "@/views/NetworkError.vue";
 
 const routes = [
   {
@@ -25,21 +28,39 @@ const routes = [
     component: FormView,
   },
   {
-    path: "/:id?",
+    path: "/uploads",
     name: "uploads",
     component: UploadView,
     props: (route) => ({ page: parseInt(route.query._page) || 1 }),
   },
   {
-    path: "/:id?",
+    path: "/events",
     name: "list",
     component: ListView,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
+  },
+  {
+    path: "/network-error",
+    name: "NetworkError",
+    component: NetworkError,
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach(() => {
+  NProgress.start();
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
