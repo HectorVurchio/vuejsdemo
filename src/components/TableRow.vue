@@ -1,16 +1,15 @@
 <template>
-  <div class="table-row">
-    <div v-for="item in items" :key="item.id">{{ item }}</div>
-  </div>
+  <tr v-for="item in items" :key="item.id">
+    <td v-for="td in item" :key="td.id">{{ td }}</td>
+  </tr>
 </template>
 <script>
 export default {
-  name: "TableRow",
   props: {
     items: { Array, required: true },
   },
   created() {
-    //console.log(typeof this.items);
+    console.log(this.items);
   },
 };
 </script>

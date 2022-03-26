@@ -1,9 +1,21 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state: {
+    yellowMessage: "",
+    redMessage: "",
+    event: null,
+    events: [],
+  },
   getters: {},
-  mutations: {},
+  mutations: {
+    change_flash_yellow(state, chanPL) {
+      state.yellowMessage = chanPL;
+    },
+    change_flash_red(state, chanPL) {
+      state.redMessage = chanPL;
+    },
+  },
   actions: {},
   modules: {},
 });

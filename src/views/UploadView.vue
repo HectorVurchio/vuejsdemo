@@ -1,10 +1,14 @@
 <template>
   <HeadBar msg="Upload List" />
 
-  <div v-if="!upFiles">Loading Please wait...</div>
-
-  <div v-else class="upfiles">
-    <TableRow :items="upFiles" />
+  <div class="upfiles">
+    <table v-if="!upFiles">
+      Loading Please wait...
+    </table>
+    <table v-else>
+      <TableHead :items="thData" />
+      <TableRow :items="upFiles" />
+    </table>
 
     <div class="pagination">
       <router-link
@@ -35,12 +39,14 @@
 </template>
 <script>
 import HeadBar from "@/components/HeadBar.vue";
+import TableHead from "@/components/TableHead.vue";
 import TableRow from "@/components/TableRow.vue";
 import DemoService from "@/services/DemoService.js";
 export default {
   name: "UploadView",
   components: {
     HeadBar,
+    TableHead,
     TableRow,
   },
   props: ["page"],
@@ -48,6 +54,8 @@ export default {
     return {
       upFiles: null,
       totalUpFiles: 0,
+      mustNot: ["id", "file_one_name", "file_two_name", "file_three_name"],
+      thData: null,
     };
   },
   beforeRouteEnter(routeTo, routeFrom, next) {
@@ -56,6 +64,7 @@ export default {
         next((cp) => {
           cp.upFiles = response.data.RecSet;
           cp.totalUpFiles = response.data.NumSet;
+          cp.tableHead = response.data.RecSet;
         });
       })
       .catch((error) => {
@@ -68,6 +77,7 @@ export default {
       .then((response) => {
         this.upFiles = response.data.RecSet;
         this.totalUpFiles = response.data.NumSet;
+        this.tableHead = response.data.RecSet;
       })
       .catch((error) => {
         console.log(error);
@@ -82,15 +92,61 @@ export default {
       // Then check to see if the current page is less than the total pages.
       return this.page < totalPages;
     },
+    tableHead: {
+      get() {
+        return this.thData;
+      },
+      set(val) {
+        this.thData = Array.isArray(val) ? this.tableKeys(val[0]) : [];
+      },
+    },
+  },
+  methods: {
+    tableKeys(objData) {
+      let words = [];
+      if (objData != undefined && typeof objData == "object") {
+        for (const [key] of Object.entries(objData)) {
+          if (!this.mustNot.includes(key)) {
+            let keyword = key.split("_");
+            for (let i = 0; i < keyword.length; i++) {
+              keyword[i] =
+                keyword[i].charAt(0).toUpperCase() + keyword[i].slice(1);
+            }
+            words.push(keyword.join(" "));
+          }
+        }
+      }
+      return words;
+    },
   },
 };
 </script>
 <style scoped>
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #34495e;
+  color: #f3f3f3;
+}
+td,
+th {
+  padding: 8px;
+  text-align: left;
+}
+tr:nth-of-type(odd) {
+  background: #16a085;
+}
+
+th {
+  background: #2c3e50;
+  font-weight: bold;
+}
 .upfiles {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .pagination {
   display: flex;
   width: 290px;

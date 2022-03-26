@@ -27,21 +27,35 @@ export default {
       this.play = fs[3];
       const form = event.target.form;
       if (this.play) {
-        this.aaids.forEach((i) => {
-          document.getElementById(`${i}`).textContent = "No File Chosen";
-        });
-        form.reset();
         const formData = new FormData();
         this.files.forEach((elm, ind) => {
           formData.append(`files[${ind}]`, elm);
         });
         formData.append("fields", JSON.stringify(this.fields));
         DemoService.postSendung(formData)
-          .then(() => {
-            console.log("SUCCESS!!");
+          .then((resp) => {
+            console.log(resp.data);
+            this.$store.commit(
+              "change_flash_yellow",
+              "Data Successfully Loaded... "
+            );
+            this.aaids.forEach((i) => {
+              document.getElementById(`${i}`).textContent = "No File Chosen";
+            });
+            form.reset();
+            setTimeout(() => {
+              this.$store.commit("change_flash_yellow", "");
+            }, 3000);
           })
-          .catch(() => {
-            console.log("FAILURE!!");
+          .catch((error) => {
+            console.log(error);
+            this.$store.commit(
+              "change_flash_red",
+              "Data Unsuccessfully Loaded..."
+            );
+            setTimeout(() => {
+              this.$store.commit("change_flash_red", "");
+            }, 3000);
           });
       }
     },

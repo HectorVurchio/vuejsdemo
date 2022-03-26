@@ -1,4 +1,5 @@
 <template>
+  <FlashMessage />
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link :to="{ name: 'form' }">Form</router-link> |
@@ -24,7 +25,14 @@
   </nav>
   <router-view />
 </template>
-
+<script>
+import FlashMessage from "@/views/FlashMessage.vue";
+export default {
+  components: {
+    FlashMessage,
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
