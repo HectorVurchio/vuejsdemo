@@ -7,7 +7,7 @@
     </table>
     <table v-else>
       <TableHead :items="thData" />
-      <TableRow :items="upFiles" />
+      <TableRow :items="upFiles" :mustBe="mustBe" />
     </table>
 
     <div class="pagination">
@@ -54,7 +54,16 @@ export default {
     return {
       upFiles: null,
       totalUpFiles: 0,
-      mustNot: ["id", "file_one_name", "file_two_name", "file_three_name"],
+      mustBe: [
+        "prefix",
+        "machine_name",
+        "test_number",
+        "start_phase",
+        "end_phase",
+        "start_stroke",
+        "end_stroke",
+        "bioethanol",
+      ],
       thData: null,
     };
   },
@@ -106,7 +115,7 @@ export default {
       let words = [];
       if (objData != undefined && typeof objData == "object") {
         for (const [key] of Object.entries(objData)) {
-          if (!this.mustNot.includes(key)) {
+          if (this.mustBe.includes(key)) {
             let keyword = key.split("_");
             for (let i = 0; i < keyword.length; i++) {
               keyword[i] =
