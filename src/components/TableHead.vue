@@ -1,5 +1,5 @@
 <template>
-  <tr class="table-row">
+  <tr>
     <th v-for="item in items" :key="item.id">{{ item }}</th>
   </tr>
 </template>
@@ -16,4 +16,14 @@ export default {
   methods: {},
 };
 </script>
-<style></style>
+<style scoped>
+tr {
+  height: 40px;
+  background: #42b983;
+}
+th {
+  font-weight: bold;
+  padding: 8px;
+  text-align: left;
+}
+</style>

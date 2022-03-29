@@ -134,21 +134,8 @@ export default {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #34495e;
-  color: #f3f3f3;
-}
-td,
-th {
-  padding: 8px;
-  text-align: left;
-}
-tr:nth-of-type(odd) {
-  background: #16a085;
-}
-
-th {
   background: #2c3e50;
-  font-weight: bold;
+  color: #f3f3f3;
 }
 .upfiles {
   display: flex;

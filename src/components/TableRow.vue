@@ -24,3 +24,15 @@ export default {
   },
 };
 </script>
+<style scoped>
+tr {
+  height: 40px;
+}
+tr:nth-of-type(odd) {
+  background: #42b983;
+}
+td {
+  padding: 8px;
+  text-align: left;
+}
+</style>
