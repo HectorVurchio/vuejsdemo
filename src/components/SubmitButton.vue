@@ -62,3 +62,52 @@ export default {
   },
 };
 </script>
+<style scoped>
+.form-row-4 {
+  text-align: center;
+}
+.hor-col-1 {
+  margin-bottom: 6px;
+}
+.hor-col-1 label {
+  font-family: "Roboto";
+  font-size: 12px;
+}
+
+.hor-col-1 label :first-child {
+  margin-right: 8px;
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 14px;
+}
+.form-row-4 .hor-col-1 button {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  border: 1px solid #deeaeb;
+  border-radius: 8px;
+  box-sizing: border-box 0px;
+  cursor: pointer;
+}
+.form-row-4 .hor-col-1 button:hover {
+  background-color: #a5c2c4;
+}
+@media only screen and (min-width: 640px) and (max-width: 870px) {
+  .hor-col-1 label {
+    font-size: 10px;
+  }
+  .hor-col-1 label :first-child {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 639px) {
+  .form-row-4 {
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-width: 340px) and (max-width: 429px) {
+  .form-row-4 {
+    margin-top: 30px;
+  }
+}
+</style>

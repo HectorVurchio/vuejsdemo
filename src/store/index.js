@@ -6,6 +6,7 @@ export default createStore({
     redMessage: "",
     event: null,
     events: [],
+    uploadval: null,
   },
   getters: {},
   mutations: {
@@ -14,6 +15,9 @@ export default createStore({
     },
     change_flash_red(state, chanPL) {
       state.redMessage = chanPL;
+    },
+    change_uploadval(state, chanulv) {
+      state.uploadval = chanulv;
     },
   },
   actions: {},

@@ -11,7 +11,7 @@ export default {
   name: "FlashMessage",
 };
 </script>
-<style>
+<style scoped>
 @keyframes yellowfade {
   from {
     background: yellow;

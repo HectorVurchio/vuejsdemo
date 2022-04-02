@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .headbar {
   height: 80px;
   background-color: white;

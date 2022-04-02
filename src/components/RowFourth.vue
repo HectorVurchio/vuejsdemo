@@ -23,3 +23,65 @@ export default {
   props: {},
 };
 </script>
+<style scoped>
+.form-row-1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.hor-col-1 {
+  margin-bottom: 6px;
+}
+.hor-col-1 label {
+  font-family: "Roboto";
+  font-size: 12px;
+}
+
+.hor-col-1 label :first-child {
+  margin-right: 8px;
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 14px;
+}
+.hor-col-2 {
+  display: flex;
+}
+
+.hor-col-2 > input,
+select {
+  width: 32%;
+  margin-left: 2%;
+  height: 26px;
+  font-size: 14px;
+  border: 1px solid #deeaeb;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.hor-col-2 textarea {
+  width: 96%;
+  margin-left: 2%;
+  height: 60px;
+  font-size: 16px;
+  border: 1px solid #deeaeb;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 640px) and (max-width: 870px) {
+  .hor-col-1 label {
+    font-size: 10px;
+  }
+  .hor-col-1 label :first-child {
+    font-size: 12px;
+  }
+  .hor-col-2 > input,
+  select {
+    width: 28%;
+    height: 22px;
+    font-size: 12px;
+  }
+  .hor-col-2 textarea {
+    width: 88%;
+    font-size: 12px;
+  }
+}
+</style>

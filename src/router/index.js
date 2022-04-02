@@ -6,6 +6,7 @@ import UploadView from "../views/UploadView.vue";
 import NProgress from "nprogress";
 import NotFound from "../views/NotFound.vue";
 import NetworkError from "@/views/NetworkError.vue";
+import ExcelFiles from "@/components/ExcelFiles.vue";
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: "/network-error",
     name: "NetworkError",
     component: NetworkError,
+  },
+  {
+    path: "/excel-files",
+    name: "excel",
+    component: ExcelFiles,
   },
 ];
 

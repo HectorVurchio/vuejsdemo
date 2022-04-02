@@ -45,7 +45,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .outer {
   width: 100%;
   padding-top: 40px;
@@ -94,74 +94,6 @@ form {
   margin-bottom: 12px;
 }
 
-.form-row-1 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.hor-col-1 {
-  margin-bottom: 6px;
-}
-
-.hor-col-1 label {
-  font-family: "Roboto";
-  font-size: 12px;
-}
-
-.hor-col-1 label :first-child {
-  margin-right: 8px;
-  margin-left: 2%;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.hor-col-2 {
-  display: flex;
-}
-
-.hor-col-2 > input,
-select {
-  width: 32%;
-  margin-left: 2%;
-  height: 26px;
-  font-size: 14px;
-  border: 1px solid #deeaeb;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-
-.form-row-2 {
-  display: flex;
-  margin-bottom: 16px;
-}
-
-.ver-col-1 {
-  display: flex;
-  flex-direction: column;
-  width: 48%;
-  margin-left: 2%;
-}
-
-.ver-col-1 input {
-  font-size: 14px;
-  border: 1px solid #deeaeb;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-
-.hor-col-2 textarea {
-  width: 96%;
-  margin-left: 2%;
-  height: 60px;
-  font-size: 16px;
-  border: 1px solid #deeaeb;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
-label span:last-child {
-  color: red;
-}
 .test-input-files {
   width: 36%;
   height: 320px;
@@ -185,123 +117,15 @@ label span:last-child {
 .test-input-files :first-child {
   margin-top: 6px;
 }
-.form-row-3 {
-  display: flex;
-  margin-bottom: 16px;
-}
-.ver-col-3 {
-  width: 120px;
-}
-.ver-col-3 .btn-img-1 {
-  position: relative;
-  margin-top: 4px;
-  padding: 12px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  background-color: white;
-  cursor: pointer;
-}
-
-.ver-col-3 .btn-img-1:hover {
-  background-color: #a5c2c4;
-}
-
-.ver-col-3 .btn-img-1 img {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
-}
-
-.ver-col-3 .btn-img-1 a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #534444;
-}
-
-.form-row-3 .file-selected {
-  padding-left: 14px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.form-row-3 .file-selected p {
-  font-size: 12px;
-}
-.form-row-4 {
-  text-align: center;
-}
-.form-row-4 .hor-col-1 button {
-  height: 40px;
-  width: 200px;
-  font-size: 20px;
-  border: 1px solid #deeaeb;
-  border-radius: 8px;
-  box-sizing: border-box 0px;
-  cursor: pointer;
-}
-.form-row-4 .hor-col-1 button:hover {
-  background-color: #a5c2c4;
-}
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   form {
     width: 600px;
-  }
-  .hor-col-1 label {
-    font-size: 10px;
-  }
-  .hor-col-1 label :first-child {
-    font-size: 12px;
-  }
-  .hor-col-2 > input,
-  select {
-    width: 28%;
-    height: 22px;
-    font-size: 12px;
-  }
-  .ver-col-1 {
-    width: 43%;
-    margin-left: 2%;
-  }
-  .ver-col-1 input {
-    font-size: 12px;
-  }
-  .hor-col-2 textarea {
-    width: 88%;
-    font-size: 12px;
   }
 
   .test-input-files {
     width: 36%;
     padding: 20px;
     border-radius: 12px;
-  }
-  .form-row-3 {
-    margin-bottom: 6px;
-  }
-  .ver-col-3 .btn-img-1 {
-    width: 80px;
-  }
-  .ver-col-3 label {
-    font-size: 10px;
-  }
-  .ver-col-3 .btn-img-1 {
-    margin-top: 2px;
-    padding: 6px;
-    border-radius: 6px;
-  }
-  .ver-col-3 .btn-img-1 img {
-    top: 2px;
-    left: 4px;
-    width: 14px;
-    height: 14px;
-  }
-  .form-row-3 .file-selected {
-    font-size: 8px;
-  }
-  .ver-col-3 .btn-img-1 a {
-    font-size: 10px;
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 639px) {
@@ -321,9 +145,6 @@ label span:last-child {
     width: 94%;
     margin: auto;
   }
-  .form-row-4 {
-    margin-top: 30px;
-  }
 }
 @media only screen and (min-width: 340px) and (max-width: 429px) {
   form {
@@ -340,9 +161,6 @@ label span:last-child {
   .test-input-files {
     width: 94%;
     margin: auto;
-  }
-  .form-row-4 {
-    margin-top: 30px;
   }
 }
 @media only screen and (max-width: 339px) {
