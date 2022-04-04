@@ -1,4 +1,4 @@
-export default {
+export default class EventPage {
   selectedButton(element, cln) {
     const parent = element.parentElement;
     const childrens = parent.children;
@@ -10,5 +10,5 @@ export default {
         childrens[i].setAttribute("class", `${cln}`);
       }
     }
-  },
-};
+  }
+}

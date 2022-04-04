@@ -54,6 +54,11 @@ const routes = [
     name: "excel",
     component: ExcelFiles,
   },
+  {
+    path: "/excel-files/:file",
+    name: "ExelFile",
+    component: ExcelFiles,
+  },
 ];
 
 const router = createRouter({

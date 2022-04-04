@@ -37,7 +37,7 @@ export default {
       const parent = element.parentElement;
       this.vals = parent.lastChild.value;
       this.$store.commit("change_uploadval", parent.lastChild.value);
-      this.$router.push({ name: "excel" });
+      this.$router.push({ name: "ExelFile", params: { file: "files" } });
     },
   },
 };
