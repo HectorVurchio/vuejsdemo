@@ -1,7 +1,9 @@
 export default class Table {
+  #maxColumns = 4; //max columns
   #head = [];
   #body = [];
   #error = false;
+  #vec = new Map();
   #tablestyle = {
     width: "100%",
     "border-collapse": "collapse",
@@ -30,6 +32,7 @@ export default class Table {
       this.#error = true;
     }
     this.#head = Object.values(row1);
+    this.#head.splice(this.#maxColumns); //max columns
     this.#body = arr;
   }
   createTable() {
@@ -42,6 +45,9 @@ export default class Table {
       table.style.setProperty(key, value);
     }
     return table;
+  }
+  getVec() {
+    return this.#vec;
   }
   #tableHead() {
     const tr = document.createElement("tr");
@@ -80,8 +86,18 @@ export default class Table {
           td.style.setProperty(key, value);
         }
         tr.appendChild(td);
+
+        //filling the map
+        if (this.#vec.has(this.#head[i])) {
+          this.#vec.get(this.#head[i]).push(value);
+        } else {
+          let newVal = new Array();
+          newVal.push(value);
+          this.#vec.set(this.#head[i], newVal);
+        }
+
         i++;
-        if (i == 4) {
+        if (i >= this.#head.length) {
           break;
         }
       }

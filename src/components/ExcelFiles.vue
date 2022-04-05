@@ -9,7 +9,7 @@
     </div>
     <div class="container" id="container-two">
       <div class="table-zone"></div>
-      <div class="graphic-zone"><h2>Chart goes here</h2></div>
+      <div class="graphic-zone"><canvas id="myChart"></canvas></div>
     </div>
     <div class="container" id="container-three">
       <p>Notes:</p>
@@ -21,6 +21,7 @@
 import EventPage from "@/services/EventPage.js";
 import Table from "@/services/Table.js";
 import DemoService from "@/services/DemoService.js";
+import Graphic from "@/services/Graphic.js";
 export default {
   data() {
     return {
@@ -55,8 +56,22 @@ export default {
           while (tableZone[0].hasChildNodes()) {
             tableZone[0].removeChild(tableZone[0].firstChild);
           }
-          const table = new Table(response.data).createTable();
-          tableZone[0].appendChild(table);
+          const table = new Table(response.data);
+          tableZone[0].appendChild(table.createTable());
+          return table;
+        })
+        .then((table) => {
+          const ctx = document.getElementById("myChart");
+          const vect = table.getVec();
+          const graphic = new Graphic(vect, ctx);
+          const instances = graphic.getInstances();
+          const instkeys = Object.keys(instances);
+          if (instkeys.length === 0) {
+            graphic.plot();
+          } else {
+            instances[instkeys[0]].destroy();
+            graphic.plot();
+          }
         })
         .then(() => {
           new EventPage().selectedButton(element, "file-btn");
