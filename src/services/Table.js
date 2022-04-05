@@ -2,6 +2,26 @@ export default class Table {
   #head = [];
   #body = [];
   #error = false;
+  #tablestyle = {
+    width: "100%",
+    "border-collapse": "collapse",
+  };
+  #tdStyle = {
+    "text-align": "center",
+    border: "1px solid #ceeadd",
+    padding: "8px",
+    "font-size": "16px",
+  };
+  #thStyle = {
+    "text-align": "center",
+    border: "1px solid #ceeadd",
+    padding: "8px",
+    "font-size": "16px",
+    position: "sticky",
+    top: "0px",
+    background: "#41b782",
+    color: "#fff",
+  };
   #paininass = "";
   constructor(dataObj) {
     const arr = Object.entries(dataObj); // due to data nature
@@ -18,6 +38,9 @@ export default class Table {
     const tableBody = this.#tableBody();
     table.appendChild(tableHead);
     table.appendChild(tableBody);
+    for (const [key, value] of Object.entries(this.#tablestyle)) {
+      table.style.setProperty(key, value);
+    }
     return table;
   }
   #tableHead() {
@@ -28,6 +51,9 @@ export default class Table {
         let th = document.createElement("th");
         let txt = document.createTextNode(item);
         th.appendChild(txt);
+        for (const [key, value] of Object.entries(this.#thStyle)) {
+          th.style.setProperty(key, value);
+        }
         if (this.#error) {
           th.style.background = "red";
           th.style.color = "yellow";
@@ -50,6 +76,9 @@ export default class Table {
         let td = document.createElement("td");
         let txt = document.createTextNode(value);
         td.appendChild(txt);
+        for (const [key, value] of Object.entries(this.#tdStyle)) {
+          td.style.setProperty(key, value);
+        }
         tr.appendChild(td);
         i++;
         if (i == 4) {

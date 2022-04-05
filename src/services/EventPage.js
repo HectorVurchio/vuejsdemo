@@ -11,4 +11,14 @@ export default class EventPage {
       }
     }
   }
+  deselectedButton(parent, cln) {
+    const childrens = parent.children;
+    for (let i = 0; i < childrens.length; i++) {
+      let clsplitted = childrens[i].className.split("-");
+      if (clsplitted.length == 3 && clsplitted.pop() == "pushed") {
+        childrens[i].removeAttribute("class");
+        childrens[i].setAttribute("class", `${cln}`);
+      }
+    }
+  }
 }

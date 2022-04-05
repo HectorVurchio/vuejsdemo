@@ -30,20 +30,14 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
-      console.log("enter");
-      //window.addEventListener("popstate", (e) => {
-      //vm.popstatchg(e.target);
-      //});
       vm.winload(vm);
     });
   },
   beforeRouteUpdate(to, from) {
     this.from = from;
     this.popstatchg(to);
-    console.log("update");
   },
   beforeRouteLeave(to, from) {
-    console.log("leave");
     this.winunload();
     this.from = from;
   },
@@ -52,21 +46,7 @@ export default {
       const element = event.target;
       const file = element.innerText;
       this.btnMap.set(`/excel-files/${file}`, [file, element]);
-      console.log(`/excel-files/${file}`, file);
       this.$router.push(`/excel-files/${file}`);
-      //this.getDatabase(file);
-      /*DemoService.getExcel(file)
-        .then((response) => {
-          const tableZone = document.getElementsByClassName("table-zone");
-          while (tableZone[0].hasChildNodes()) {
-            tableZone[0].removeChild(tableZone[0].firstChild);
-          }
-          const table = new Table(response.data).createTable();
-          tableZone[0].appendChild(table);
-        })
-        .then(() => {
-          EventPage.selectedButton(this.element, "file-btn");
-        });*/
     },
     getDatabase(file, element) {
       DemoService.getExcel(file)
@@ -104,11 +84,6 @@ export default {
     winunload() {
       const date = document.getElementsByClassName("date");
       date[0].firstChild.removeChild(date[0].firstChild.firstChild);
-      /*const pushed = document.getElementsByClassName("file-btn-pushed");
-      if (pushed.length > 0) {
-        pushed[0].removeAttribute("class");
-        pushed[0].setAttribute("class", "file-btn");
-      }*/
       const contone = document.getElementById("container-one");
       contone.childNodes.forEach((item) => {
         item.removeChild(item.firstChild);
@@ -121,23 +96,14 @@ export default {
       txtarea[0].removeChild(txtarea[0].firstChild);
     },
     popstatchg(current) {
-      console.log(current);
-      console.log(this.btnMap);
       const fulpath = current.fullPath.split("%20").join(" ");
       if (this.btnMap.has(fulpath)) {
-        console.log("click");
         const value = this.btnMap.get(fulpath);
         this.getDatabase(value[0], value[1]);
-        //const elm = this.btnMap.get(current);
-        //elm.click();
       } else {
-        /*const pushed = document.getElementsByClassName("file-btn-pushed");
-        if (pushed.length > 0) {
-          pushed[0].removeAttribute("class");
-          pushed[0].setAttribute("class", "file-btn");
-        }*/
         this.winunload();
         this.winload(this);
+        new EventPage().deselectedButton(window["container-one"], "file-btn");
       }
     },
   },
@@ -221,26 +187,6 @@ export default {
 #container-two .table-zone {
   height: 400px;
   overflow: auto;
-}
-
-#container-two .table-zone table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#container-two .table-zone table th {
-  background: #41b782;
-  color: #fff;
-  position: sticky;
-  top: 0;
-}
-
-#container-two .table-zone table th,
-td {
-  text-align: center;
-  border: 1px solid #ceeadd;
-  padding: 8px;
-  font-size: 16px;
 }
 
 #container-three {
