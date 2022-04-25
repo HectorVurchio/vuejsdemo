@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost",
+  baseURL: "http://129.213.41.157",
   withCredentials: false,
   headers: { "Content-Type": "multipart/form-data" },
 });
