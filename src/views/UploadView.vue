@@ -158,4 +158,9 @@ table {
 #page-next {
   text-align: right;
 }
+@media only screen and (max-width: 590px) {
+  .upfiles {
+    font-size: 10px;
+  }
+}
 </style>

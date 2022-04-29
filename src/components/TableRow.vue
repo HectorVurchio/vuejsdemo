@@ -58,4 +58,10 @@ td {
   padding: 8px;
   text-align: left;
 }
+@media only screen and (max-width: 590px) {
+  td {
+    padding: 0px;
+    text-align: center;
+  }
+}
 </style>
