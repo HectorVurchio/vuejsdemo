@@ -13,7 +13,9 @@ const routes = [
     path: "/",
     name: "home",
     //component: HomeView,
-    component: NotFound,
+    redirect: () => {
+      return { path: "/form", name: "form", component: FormView };
+    },
   },
   {
     path: "/about",
