@@ -1,7 +1,7 @@
 <template>
   <FlashMessage />
   <nav>
-    <router-link to="/">Home</router-link> |
+    <!--<router-link to="/">Home</router-link> | -->
     <router-link :to="{ name: 'form' }">Form</router-link> |
     <router-link
       :to="{
@@ -12,7 +12,7 @@
       >Uploads</router-link
     >
     |
-    <router-link
+    <!--<router-link
       :to="{
         name: 'list',
         params: { id: 'events' },
@@ -20,7 +20,7 @@
       }"
       >List</router-link
     >
-    |
+    |-->
     <router-link :to="{ name: 'about' }">About</router-link>
   </nav>
   <router-view />

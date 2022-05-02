@@ -13,17 +13,27 @@ export default {
 </script>
 <style scoped>
 input {
-  font-size: 14px;
+  height: 26px;
+  font-size: 12px;
   border: 1px solid #deeaeb;
-  border-radius: 2px;
+  border-radius: 4px;
   box-sizing: border-box;
+  margin-top: 6px;
+}
+label {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: bold;
 }
 label span:last-child {
   color: red;
 }
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   input {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  label {
+    font-size: 10px;
   }
 }
 </style>

@@ -12,7 +12,7 @@
           <RowFourth />
         </div>
         <div class="test-input-files">
-          <label class="form-label-2">Test Configuration</label>
+          <label class="form-label-2">Test Input Files</label>
           <RowSixth label="TDMD&nbsp;Data&nbsp;File:" fileid="file1" />
           <RowSixth label="Config&nbsp;Log&nbsp;File:" fileid="file2" />
           <RowSixth label="Start&nbsp;Stroke:" fileid="file3" />
@@ -49,18 +49,19 @@ export default {
 .outer {
   width: 100%;
   padding-top: 40px;
-  background-color: #deeaeb;
+  background-color: #f7f7f7;
   padding-bottom: 40px;
 }
 form {
   width: 845px;
-  height: 470px;
+  height: 490px;
   margin: auto;
   background-color: white;
   border: 1px solid #deeaeb;
   border-radius: 16px;
   box-sizing: border-box;
   text-align: left;
+  padding-top: 20px;
 }
 
 .container {
@@ -79,19 +80,11 @@ form {
 
 .form-label-1 {
   width: 100%;
-  padding: 3%;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: "Roboto";
-  margin-bottom: 12px;
-}
-
-.form-label-1 {
-  width: 100%;
   font-weight: bold;
   font-size: 24px;
   font-family: "Roboto";
   margin-bottom: 12px;
+  margin-left: 30px;
 }
 
 .test-input-files {
@@ -99,7 +92,7 @@ form {
   height: 320px;
   margin-top: 40px;
   padding: 20px;
-  background-color: #deeaeb;
+  background-color: #f7f7f7;
   border: 1px solid #deeaeb;
   border-radius: 16px;
   box-sizing: border-box;
@@ -107,16 +100,12 @@ form {
 
 .form-label-2 {
   width: 100%;
-  padding: 3%;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Roboto";
   margin-bottom: 12px;
 }
 
-.test-input-files :first-child {
-  margin-top: 6px;
-}
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   form {
     width: 600px;
@@ -149,7 +138,7 @@ form {
 @media only screen and (min-width: 340px) and (max-width: 429px) {
   form {
     width: 300px;
-    height: 820px;
+    height: 860px;
   }
   .container {
     flex-direction: column;

@@ -146,6 +146,7 @@ table {
 .pagination {
   display: flex;
   width: 290px;
+  margin-top: 40px;
 }
 .pagination a {
   flex: 1;
@@ -154,9 +155,15 @@ table {
 }
 #page-prev {
   text-align: left;
+  font-size: 22px;
+  padding: 16px;
+  font-weight: bold;
 }
 #page-next {
   text-align: right;
+  font-size: 22px;
+  padding: 16px;
+  font-weight: bold;
 }
 @media only screen and (max-width: 590px) {
   .upfiles {

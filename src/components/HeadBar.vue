@@ -13,6 +13,10 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 24px;
+  margin-top: 22px;
+}
 .headbar {
   height: 80px;
   background-color: white;

@@ -42,17 +42,24 @@ export default {
   margin-left: 2%;
   font-weight: bold;
   font-size: 14px;
+  font-family: "Roboto";
 }
 .hor-col-2 {
   display: flex;
 }
-
+.hor-col-2 label {
+  font-family: "Roboto";
+  font-size: 12px;
+  margin-left: 14px;
+  padding-top: 4px;
+}
 .hor-col-2 > input,
 select {
   width: 32%;
   margin-left: 2%;
   height: 26px;
-  font-size: 14px;
+  font-size: 12px;
+  font-family: "Roboto";
   border: 1px solid #deeaeb;
   border-radius: 2px;
   box-sizing: border-box;
@@ -61,11 +68,13 @@ select {
   width: 96%;
   margin-left: 2%;
   height: 60px;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Roboto";
   border: 1px solid #deeaeb;
-  border-radius: 3px;
+  border-radius: 6px;
   box-sizing: border-box;
 }
+
 @media only screen and (min-width: 640px) and (max-width: 870px) {
   .hor-col-1 label {
     font-size: 10px;

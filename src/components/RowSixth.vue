@@ -18,7 +18,6 @@
       @change="handleChange"
       style="display: none; width: 1px"
     />
-    <!--<input type="button" :id="`${fileid}-b`" value="read" @click="readFile" />-->
   </div>
 </template>
 <script>
@@ -60,19 +59,6 @@ export default {
         element.removeAttribute("type");
         element.setAttribute("type", "file");
       }
-      /* readFile(event) {
-      const elm = event.target;
-      const fs = document.getElementById(`${elm.id.split("-")[0]}`);
-      const file = fs.files[0];
-      const reader = new FileReader();
-      reader.readAsText(file);
-      reader.onload = function (evt) {
-        console.log(evt.target.result);
-      };
-      reader.onerror = function (evt) {
-        console.log(evt);
-        console.log("error reading file");
-      };*/
     },
   },
 };
@@ -80,6 +66,7 @@ export default {
 <style scoped>
 .form-row-3 {
   display: flex;
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 .form-row-3 .file-selected {
@@ -94,10 +81,18 @@ export default {
 .ver-col-3 {
   width: 120px;
 }
+.ver-col-3 label {
+  font-size: 12px;
+}
+.ver-col-3 label span {
+  color: red;
+}
+
 .ver-col-3 .btn-img-1 {
   position: relative;
   margin-top: 4px;
-  padding: 12px;
+  padding: 8px;
+  border: 2px solid #deeaeb;
   border-radius: 8px;
   box-sizing: border-box;
   background-color: white;
@@ -110,14 +105,14 @@ export default {
 
 .ver-col-3 .btn-img-1 img {
   position: absolute;
-  top: 4px;
   left: 4px;
   width: 20px;
-  height: 20px;
+  height: 16px;
 }
 
 .ver-col-3 .btn-img-1 a {
   margin-left: 20px;
+  font-size: 12px;
   text-decoration: none;
   color: #534444;
 }
@@ -140,12 +135,12 @@ export default {
     border-radius: 6px;
   }
   .ver-col-3 .btn-img-1 img {
-    top: 2px;
     left: 4px;
     width: 14px;
     height: 14px;
   }
   .ver-col-3 .btn-img-1 a {
+    margin-left: 16px;
     font-size: 10px;
   }
   .ver-col-3 .btn-img-1 {

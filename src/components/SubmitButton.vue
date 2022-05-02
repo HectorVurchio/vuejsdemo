@@ -84,7 +84,7 @@ export default {
   height: 40px;
   width: 200px;
   font-size: 20px;
-  border: 1px solid #deeaeb;
+  border: 2px solid #deeaeb;
   border-radius: 8px;
   box-sizing: border-box 0px;
   cursor: pointer;

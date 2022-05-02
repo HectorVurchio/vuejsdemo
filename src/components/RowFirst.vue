@@ -83,20 +83,13 @@ select {
   width: 32%;
   margin-left: 2%;
   height: 26px;
-  font-size: 14px;
+  font-size: 12px;
   border: 1px solid #deeaeb;
-  border-radius: 2px;
+  border-radius: 4px;
   box-sizing: border-box;
+  background-color: #f7f7f7;
 }
-.hor-col-2 textarea {
-  width: 96%;
-  margin-left: 2%;
-  height: 60px;
-  font-size: 16px;
-  border: 1px solid #deeaeb;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
+
 label span:last-child {
   color: red;
 }
@@ -110,12 +103,8 @@ label span:last-child {
   .hor-col-2 > input,
   select {
     width: 28%;
-    height: 22px;
-    font-size: 12px;
+    /*height: 22px;*/
+    font-size: 10px;
   }
-}
-.hor-col-2 textarea {
-  width: 88%;
-  font-size: 12px;
 }
 </style>

@@ -95,6 +95,7 @@ export default {
       const txtarea = document.getElementsByTagName("textarea");
       txt = document.createTextNode(objDB["note"]);
       txtarea[0].appendChild(txt);
+      contone.firstChild.click();
     },
     winunload() {
       const date = document.getElementsByClassName("date");
