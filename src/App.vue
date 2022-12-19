@@ -1,7 +1,7 @@
 <template>
   <FlashMessage />
   <nav>
-    <!--<router-link to="/">Home</router-link> | -->
+    <router-link to="/">Home</router-link> |
     <router-link :to="{ name: 'form' }">Form</router-link> |
     <router-link
       :to="{
